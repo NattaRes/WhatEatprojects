@@ -21,4 +21,8 @@ public class MainActivity extends AppCompatActivity {
     public void log(View view) {
         startActivity(new Intent(MainActivity.this,Login.class));
     }
+
+    public void ne(View view) {
+        startActivity(new Intent(MainActivity.this,Random.class));
+    }
 }
