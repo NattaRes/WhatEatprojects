@@ -12,9 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhatEatprojects">
         <activity
+            android:name=".Random"
+            android:exported="false"
+            android:label="@string/title_activity_random"
+            android:theme="@style/Theme.WhatEatprojects.NoActionBar" />
+        <activity
             android:name=".menufood"
-            android:exported="false" />
-        <!-- <activity -->
+            android:exported="false" /> <!-- <activity -->
         <!-- android:name=".menufood" -->
         <!-- android:exported="false" /> -->
         <activity
