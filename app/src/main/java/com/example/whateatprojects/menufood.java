@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -61,6 +62,9 @@ public class menufood extends AppCompatActivity {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
                         Toast.makeText(menufood.this, ""+local.getName(), Toast.LENGTH_SHORT).show();
+                        Intent FoodIntent = new Intent(menufood.this,resturantList.class);
+                        FoodIntent.putExtra("FoodID", adapter.getRef(position).getKey());
+                        startActivity(FoodIntent);
                     }
                 });
             }
