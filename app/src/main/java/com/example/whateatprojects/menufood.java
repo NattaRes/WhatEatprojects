@@ -57,14 +57,13 @@ public class menufood extends AppCompatActivity {
                 menuAdapter.foodname.setText(food.getName());
                 Picasso.with(getBaseContext()).load(food.getImage()).into(menuAdapter.foodimage);
 
-                final Menufood local = food;
+                Menufood click = food;
                 menuAdapter.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        Toast.makeText(menufood.this, ""+local.getName(), Toast.LENGTH_SHORT).show();
-                        Intent FoodIntent = new Intent(menufood.this,resturantList.class);
-                        FoodIntent.putExtra("FoodID", adapter.getRef(position).getKey());
-                        startActivity(FoodIntent);
+                        Toast.makeText(menufood.this, ""+click.getName(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(menufood.this, foodlist.class);
+                        startActivity(intent);
                     }
                 });
             }
