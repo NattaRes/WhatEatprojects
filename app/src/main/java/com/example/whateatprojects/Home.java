@@ -16,6 +16,7 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home2);
         recylerviewbtn = findViewById(R.id.recyclerviewbtn);
+
         recylerviewbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,5 +28,6 @@ public class Home extends AppCompatActivity {
 
             }
         });
+
     }
 }

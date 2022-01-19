@@ -36,23 +36,14 @@ public class Random extends AppCompatActivity {
         random = (Button) findViewById(R.id.rnd);
         nextgoto = (Button) findViewById(R.id.next);
         database = FirebaseDatabase.getInstance();
-        menufood = database.getReference("food/name");
 
 
 
 
-        menufood.addListenerForSingleValueEvent(new ValueEventListener() {
+        random.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot datas: dataSnapshot.getChildren()){
+            public void onClick(View v) {
 
-                    String keys=datas.getKey();
-
-
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
             }
         });
 
