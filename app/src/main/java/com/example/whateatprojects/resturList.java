@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.whateatprojects.Model.Menufood;
+import com.example.whateatprojects.Inteface.ItemClickListener;
+import com.example.whateatprojects.Model.Resturantaf;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,31 +25,37 @@ public class resturList extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference reslist;
 
-    String resgetID;
+    String resgetID = "";
 
-    FirebaseRecyclerAdapter<Menufood,MenuAdapter> adapter;
+    FirebaseRecyclerAdapter<Resturantaf, resturAdapter> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restur_list);
 
-        database = FirebaseDatabase.getInstance();
-        reslist = database.getReference("Resname");
+        // เข้า Database
 
-        recyclerView = (RecyclerView) findViewById(R.id.returlist);
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        // table : food
 
-        String getFID = getIntent().getStringExtra("foodID");
+        // เข้า Key ที่ได้รับจาก Intent
 
-        reslist.child(getFID).child("ResLIDP").child("01").setValue(resgetID);
+        // รับค่า Key ภายใน ResLIDP
 
-        textView = (TextView) findViewById(R.id.tester);
-        textView.setText(getFID);
+        // เรียกรายการจาก Key จาก table : R
 
-        textView2 = (TextView) findViewById(R.id.keycalltest);
-        textView2.setText(resgetID);
+        reslist = FirebaseDatabase.getInstance().getReference();
+
+
+
+//        database = FirebaseDatabase.getInstance();
+//        reslist = database.getReference("Resname");
+//
+//        recyclerView = (RecyclerView) findViewById(R.id.returlist);
+//        recyclerView.setHasFixedSize(true);
+//        layoutManager = new LinearLayoutManager(this);
+//        recyclerView.setLayoutManager(layoutManager);
+//
+//        resgetID = getIntent().getStringExtra("foodID");
     }
 }
