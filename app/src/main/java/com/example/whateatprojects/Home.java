@@ -9,14 +9,14 @@ import android.widget.Button;
 
 public class Home extends AppCompatActivity {
 
-    Button recylerviewbtn;
+    Button recylerviewbtn,ran;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home2);
         recylerviewbtn = findViewById(R.id.recyclerviewbtn);
-
+        ran = (Button)findViewById(R.id.rn) ;
         recylerviewbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,6 +26,13 @@ public class Home extends AppCompatActivity {
                 finish();
 
 
+            }
+        });
+        ran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent(Home.this,random.class);
+                startActivity(a);
             }
         });
 

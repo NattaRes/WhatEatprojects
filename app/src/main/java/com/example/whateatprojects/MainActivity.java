@@ -23,6 +23,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ne(View view) {
-        startActivity(new Intent(MainActivity.this,Random.class));
+        startActivity(new Intent(MainActivity.this,random.class));
     }
 }

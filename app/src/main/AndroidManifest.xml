@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhatEatprojects">
         <activity
+            android:name=".random"
+            android:exported="false" />
+        <activity
             android:name=".resturList"
             android:exported="false" />
         <activity
