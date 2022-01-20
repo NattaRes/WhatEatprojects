@@ -44,9 +44,11 @@ public class resturList extends AppCompatActivity {
 
         // เรียกรายการจาก Key จาก table : R
 
+        resgetID = getIntent().getStringExtra("foodID");
+
         reslist = FirebaseDatabase.getInstance().getReference();
 
-
+        reslist.child("food").child(resgetID);
 
 //        database = FirebaseDatabase.getInstance();
 //        reslist = database.getReference("Resname");
