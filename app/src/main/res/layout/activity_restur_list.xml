@@ -6,4 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".resturList">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/returlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tester"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Helo"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:id="@+id/keycalltest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:text="Helone"
+        android:textSize="30dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

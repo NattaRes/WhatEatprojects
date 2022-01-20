@@ -62,7 +62,8 @@ public class menufood extends AppCompatActivity {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
                         Toast.makeText(menufood.this, ""+click.getName(), Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(menufood.this, foodlist.class);
+                        Intent intent = new Intent(menufood.this, resturList.class);
+                        intent.putExtra("foodID", adapter.getRef(position).getKey());
                         startActivity(intent);
                     }
                 });
