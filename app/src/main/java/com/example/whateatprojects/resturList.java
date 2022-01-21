@@ -17,15 +17,16 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class resturList extends AppCompatActivity {
 
-    TextView textView, textView2;
+    TextView textView;
+    String getter;
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
     FirebaseDatabase database;
-    DatabaseReference reslist;
+    DatabaseReference reslist, pather;
 
-    String resgetID = "";
+    String getfoodID = "";
 
     FirebaseRecyclerAdapter<Resturantaf, resturAdapter> adapter;
 
@@ -34,28 +35,46 @@ public class resturList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restur_list);
 
-        // เข้า Database
+        database = FirebaseDatabase.getInstance();
+        reslist = database.getReference("Resname");
 
-        // table : food
+        pather = database.getReference("food").child("Reslist").getParent();
 
-        // เข้า Key ที่ได้รับจาก Intent
+        getter = pather.getKey();
 
-        // รับค่า Key ภายใน ResLIDP
+        // เรียก ID จาก Resname ที่เท่ากับ Reslist
 
-        // เรียกรายการจาก Key จาก table : R
+        recyclerView = (RecyclerView) findViewById(R.id.resturlist);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
 
-        reslist = FirebaseDatabase.getInstance().getReference();
+        textView = (TextView) findViewById(R.id.tester);
+        textView.setText(getter);
 
+        if(getIntent() != null)
+            getfoodID = getIntent().getStringExtra("foodID");
+        if(!getfoodID.isEmpty() && getfoodID != null) {
+            loadRes(getfoodID);
+        }
+    }
 
+    private void loadRes(String getfoodID) {
+        adapter = new FirebaseRecyclerAdapter<Resturantaf, resturAdapter>(Resturantaf.class, R.layout.resitem,
+                resturAdapter.class,reslist.child("foodinres").orderByChild("foodID").equalTo(getfoodID)) {
+            @Override
+            protected void populateViewHolder(resturAdapter resturAdapter, Resturantaf resturantaf, int i) {
+                resturAdapter.restuname.setText(resturantaf.getName());
 
-//        database = FirebaseDatabase.getInstance();
-//        reslist = database.getReference("Resname");
-//
-//        recyclerView = (RecyclerView) findViewById(R.id.returlist);
-//        recyclerView.setHasFixedSize(true);
-//        layoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(layoutManager);
-//
-//        resgetID = getIntent().getStringExtra("foodID");
+                Resturantaf click = resturantaf;
+                resturAdapter.setItemClickListener(new ItemClickListener() {
+                    @Override
+                    public void onClick(View view, int position, boolean isLongClick) {
+                        Toast.makeText(resturList.this, ""+click.getName(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        };
+        recyclerView.setAdapter(adapter);
     }
 }

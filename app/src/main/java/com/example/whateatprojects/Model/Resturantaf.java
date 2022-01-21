@@ -1,16 +1,16 @@
 package com.example.whateatprojects.Model;
 
 public class Resturantaf {
-    private String name;
+    private String Name;
 
     public Resturantaf() {
     }
 
     public Resturantaf(String NAME) {
-        name = NAME;
+        Name = NAME;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 }
