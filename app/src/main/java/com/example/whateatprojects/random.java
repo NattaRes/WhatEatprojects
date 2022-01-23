@@ -46,17 +46,20 @@ public class random extends AppCompatActivity {
         rn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                databaseReference = FirebaseDatabase.getInstance().getReference("food");
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
-                        String h[]={String.valueOf(dataSnapshot.child("food/name"))};
-                        java.util.Random random=new java.util.Random();
-                        int num = random.nextInt(h.length);
-                        txt.setText(h[num]);
-
+                        int count = (int) dataSnapshot.getChildrenCount();
+                        for(DataSnapshot data: dataSnapshot.getChildren()){
+                            int rand = new Random().nextInt(count);
+                            for (int i = 0; i < rand; i++) {
+                                String Name = data.child("name").getValue().toString();
+                                txt.setText(Name);
+                            }
                     }
-
+                    }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
 

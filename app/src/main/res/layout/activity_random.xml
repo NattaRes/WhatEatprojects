@@ -30,15 +30,15 @@
 
     <TextView
         android:id="@+id/txtran"
-        android:layout_width="333dp"
-        android:layout_height="161dp"
+        android:layout_width="343dp"
+        android:layout_height="77dp"
         android:layout_marginStart="32dp"
         android:background="@drawable/backwh"
         android:fontFamily="@font/chonburi"
         android:text="@string/random"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.152"
