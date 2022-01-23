@@ -43,6 +43,10 @@ public class resturList extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         reslist = database.getReference("Resname");
 
+        GetfoodID = getIntent().getStringExtra("foodID");
+
+        pather = database.getReference("foodinres/" + GetfoodID);
+
         // เรียก ID จาก Resname ที่เท่ากับ Reslist
 
         recyclerView = (RecyclerView) findViewById(R.id.resturlist);
@@ -50,14 +54,12 @@ public class resturList extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        GetfoodID = getIntent().getStringExtra("foodID");
-
         loadRes(GetfoodID);
     }
 
     private void loadRes(String getfoodID) {
         adapter = new FirebaseRecyclerAdapter<Resturantaf, resturAdapter>(Resturantaf.class, R.layout.resitem,
-                resturAdapter.class,reslist.orderByChild("foodID").equalTo(GetfoodID)) {
+                resturAdapter.class,pather.orderByKey()) {
             @Override
             protected void populateViewHolder(resturAdapter resturAdapter, Resturantaf resturantaf, int i) {
                 resturAdapter.restuname.setText(resturantaf.getName());
