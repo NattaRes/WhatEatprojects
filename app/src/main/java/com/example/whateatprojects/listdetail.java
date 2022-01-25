@@ -1,19 +1,24 @@
 package com.example.whateatprojects;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class listdetail extends AppCompatActivity {
 
     TextView textView, textTer;
 
-    String getresID = "", getname = "";
+    String getresID = "";
+
+    String gettris;
 
     FirebaseDatabase database;
     DatabaseReference restur;
@@ -36,20 +41,18 @@ public class listdetail extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         restur = database.getReference("Resname/" + getresID);
 
-        getname = restur.child("Name").getKey();
+        restur.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                gettris = snapshot.child("Name").getValue().toString();
+                textView.setText(gettris);
 
-        textTer = (TextView) findViewById(R.id.time);
+            }
 
-        textTer.setText(getname);
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-        getData();
-    }
-
-    private void getData() {
-    }
-
-    public void getData(DataSnapshot dataSnapshot) {
-        DataSnapshot getter = (DataSnapshot) dataSnapshot.child(getresID).child("Name").getValue();
-        textView.setText((CharSequence) getter);
+            }
+        });
     }
 }
