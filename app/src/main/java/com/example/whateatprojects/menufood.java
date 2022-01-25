@@ -55,8 +55,8 @@ public class menufood extends AppCompatActivity {
             @Override
             protected void populateViewHolder(MenuAdapter menuAdapter, Menufood food, int i) {
                 menuAdapter.foodname.setText(food.getName());
-                Picasso.with(getBaseContext()).load(food.getImage()).into(menuAdapter.foodimage);
-
+//                Picasso.with(getBaseContext()).load(food.getImage()).into(menuAdapter.foodimage);
+                Picasso.get().load(food.getImage()).into(menuAdapter.foodimage);
                 Menufood click = food;
                 menuAdapter.setItemClickListener(new ItemClickListener() {
                     @Override
