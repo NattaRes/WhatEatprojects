@@ -30,6 +30,8 @@ public class random extends AppCompatActivity {
     TextView txt;
     Button nxt, rn;
 
+    String foodID, Name;
+
     FirebaseDatabase ran;
     DatabaseReference databaseReference;
 
@@ -55,7 +57,8 @@ public class random extends AppCompatActivity {
                         for(DataSnapshot data: dataSnapshot.getChildren()){
                             int rand = new Random().nextInt(count);
                             for (int i = 0; i < rand; i++) {
-                                String Name = data.child("name").getValue().toString();
+                                Name = data.child("name").getValue().toString();
+                                foodID = data.child("foodID").getValue().toString();
                                 txt.setText(Name);
                             }
                     }
@@ -65,6 +68,14 @@ public class random extends AppCompatActivity {
 
                     }
                 });
+            }
+        });
+        nxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(random.this, resturList.class);
+                intent.putExtra("foodID", foodID);
+                startActivity(intent);
             }
         });
     }
