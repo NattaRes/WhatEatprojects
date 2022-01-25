@@ -26,7 +26,7 @@ public class resturList extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
 
     FirebaseDatabase database;
-    DatabaseReference reslist, pather;
+    DatabaseReference pather;
 
     String GetfoodID = "";
 
@@ -38,13 +38,10 @@ public class resturList extends AppCompatActivity {
         setContentView(R.layout.activity_restur_list);
 
         database = FirebaseDatabase.getInstance();
-        reslist = database.getReference("Resname");
 
         GetfoodID = getIntent().getStringExtra("foodID");
 
         pather = database.getReference("foodinres/" + GetfoodID);
-
-        // เรียก ID จาก Resname ที่เท่ากับ Reslist
 
         recyclerView = (RecyclerView) findViewById(R.id.resturlist);
         recyclerView.setHasFixedSize(true);
