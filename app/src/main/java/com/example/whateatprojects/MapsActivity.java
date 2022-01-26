@@ -28,6 +28,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     String lati, longi;
 
+    Double latitude, longitude;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,10 +66,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-               Double latitude = snapshot.child("latitude").getValue(Double.class);
-               Double longitude = snapshot.child("longitude").getValue(Double.class);
+               lati = snapshot.child("latitude").getValue(String.class);
+               longi = snapshot.child("longitude").getValue(String.class);
 
-               LatLng location = new LatLng(latitude,longitude);
+               try {
+                   latitude = Double.parseDouble(lati);
+                   longitude = Double.parseDouble(longi);
+               } catch (NumberFormatException e) {
+                   e.printStackTrace();
+               }
+                LatLng location = new LatLng(latitude,longitude);
 
                mMap.addMarker(new MarkerOptions().position(location).title("แอนบะหมี่หน้ามอ"));
                mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
