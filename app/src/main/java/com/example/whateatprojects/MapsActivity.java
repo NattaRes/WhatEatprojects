@@ -23,6 +23,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
 
+    FirebaseDatabase database;
+    DatabaseReference positeus;
+
+    String lati, longi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        database = FirebaseDatabase.getInstance();
+        positeus = database.getReference("Resname/01/position");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        positeus.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lati = snapshot.child("latitude").getValue(String.class);
+                longi = snapshot.child("longitude").getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     /**
