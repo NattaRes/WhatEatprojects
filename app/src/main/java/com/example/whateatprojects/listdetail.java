@@ -3,10 +3,13 @@ package com.example.whateatprojects;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +30,8 @@ public class listdetail extends AppCompatActivity {
     TextView textView, textView2;
 
     ImageView imageView;
+
+    Button gomap;
 
     String getresID = "";
 
@@ -49,6 +54,7 @@ public class listdetail extends AppCompatActivity {
 
         imageView = (ImageView) findViewById(R.id.imgres);
 
+        gomap = (Button)findViewById(R.id.gomap);
         ////////////////////////////////////////////////////////
 
         database = FirebaseDatabase.getInstance();
@@ -68,6 +74,14 @@ public class listdetail extends AppCompatActivity {
 //
 //            }
 //        });
+
+        gomap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent(listdetail.this,MapsActivity.class);
+                startActivity(a);
+            }
+        });
     }
 
     @Override
