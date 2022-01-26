@@ -40,27 +40,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        database = FirebaseDatabase.getInstance();
-        positeus = database.getReference("Resname/01/position");
+
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
 
-        positeus.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                lati = snapshot.child("latitude").getValue(String.class);
-                longi = snapshot.child("longitude").getValue(String.class);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 
     /**
      * Manipulates the map once available.
@@ -75,12 +58,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Resname/01/position");
 
         ValueEventListener listener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+               Double latitude = snapshot.child("latitude").getValue(Double.class);
+               Double longitude = snapshot.child("longitude").getValue(Double.class);
+
+               LatLng location = new LatLng(latitude,longitude);
+
+               mMap.addMarker(new MarkerOptions().position(location).title("แอนบะหมี่หน้ามอ"));
+               mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
             }
 
             @Override
@@ -89,8 +79,5 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }
