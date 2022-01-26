@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -23,6 +25,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ne(View view) {
-        startActivity(new Intent(MainActivity.this,random.class));
+        startActivity(new Intent(MainActivity.this, MapsActivity.class));
     }
 }

@@ -78,5 +78,6 @@ public class random extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }
