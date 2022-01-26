@@ -26,9 +26,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     FirebaseDatabase database;
     DatabaseReference positeus;
 
+    Double latitude,longitude;
     String lati, longi;
-
-    Double latitude, longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,16 +65,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-               lati = snapshot.child("latitude").getValue(String.class);
-               longi = snapshot.child("longitude").getValue(String.class);
+                lati = snapshot.child("latitude").getValue(String.class);
+                longi  = snapshot.child("longitude").getValue(String.class);
 
-               try {
-                   latitude = Double.parseDouble(lati);
-                   longitude = Double.parseDouble(longi);
-               } catch (NumberFormatException e) {
-                   e.printStackTrace();
-               }
-                LatLng location = new LatLng(latitude,longitude);
+                latitude = Double.parseDouble(lati);
+                longitude = Double.parseDouble(longi);
+
+
+               LatLng location = new LatLng(latitude,longitude);
 
                mMap.addMarker(new MarkerOptions().position(location).title("แอนบะหมี่หน้ามอ"));
                mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
