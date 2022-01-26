@@ -79,6 +79,7 @@ public class listdetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent a = new Intent(listdetail.this,MapsActivity.class);
+                a.putExtra("sendresID", getresID);
                 startActivity(a);
             }
         });

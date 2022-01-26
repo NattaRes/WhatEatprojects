@@ -3,6 +3,7 @@ package com.example.whateatprojects;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -27,7 +28,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     DatabaseReference positeus;
 
     Double latitude,longitude;
-    String lati, longi;
+    String lati, longi, coResID = "", ResName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        coResID = getIntent().getStringExtra("sendresID");
 
     }
 
@@ -59,14 +61,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Resname/01/position");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Resname/" + coResID);
 
         ValueEventListener listener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                lati = snapshot.child("latitude").getValue(String.class);
-                longi  = snapshot.child("longitude").getValue(String.class);
+                lati = snapshot.child("position").child("latitude").getValue(String.class);
+                longi  = snapshot.child("position").child("longitude").getValue(String.class);
+
+                ResName = snapshot.child("Name").getValue(String.class);
 
                 latitude = Double.parseDouble(lati);
                 longitude = Double.parseDouble(longi);
@@ -74,7 +78,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                LatLng location = new LatLng(latitude,longitude);
 
-               mMap.addMarker(new MarkerOptions().position(location).title("แอนบะหมี่หน้ามอ"));
+               mMap.addMarker(new MarkerOptions().position(location).title(ResName));
                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 14));
             }
 
