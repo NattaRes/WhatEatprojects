@@ -62,7 +62,7 @@ public class random extends AppCompatActivity {
                                 foodID = data.child("foodID").getValue(String.class);
                                 txt.setText(Name);
                             }
-                    }
+                       }
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
