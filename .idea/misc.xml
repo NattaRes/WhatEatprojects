@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/1101120/app/src/main/res/layout/activity_foodlist.xml" value="0.25416666666666665" />
+        <entry key="..\:/1101120/app/src/main/res/layout/activity_home2.xml" value="0.25416666666666665" />
+        <entry key="..\:/1101120/app/src/main/res/layout/activity_listdetail.xml" value="0.25416666666666665" />
+        <entry key="..\:/1101120/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/1101120/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/1101120/app/src/main/res/layout/activity_maps.xml" value="0.25416666666666665" />
+        <entry key="..\:/1101120/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/1101120/app/src/main/res/layout/item.xml" value="0.25416666666666665" />
+        <entry key="..\:/1101120/app/src/main/res/layout/resitem.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ACER/Downloads/WhatEatprojects/app/src/main/res/drawable/backwh.xml" value="0.2703125" />
         <entry key="..\:/Users/ACER/Downloads/WhatEatprojects/app/src/main/res/drawable/btn_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/ACER/Downloads/WhatEatprojects/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2703125" />
@@ -13,12 +22,10 @@
         <entry key="..\:/Users/ACER/Downloads/WhatEatprojects/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ACER/Downloads/WhatEatprojects/app/src/main/res/layout/item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS_ROG/AndroidStudioProjects/WhatEatprojects/app/src/main/res/layout/activity_listdetail.xml" value="0.2" />
-        <entry key="..\:/Users/ASUS_ROG/AndroidStudioProjects/WhatEatprojects/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/ASUS_ROG/AndroidStudioProjects/WhatEatprojects/app/src/main/res/layout/activity_restur_list.xml" value="0.1598731884057971" />
         <entry key="..\:/Users/ASUS_ROG/AndroidStudioProjects/WhatEatprojects/app/src/main/res/layout/item.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/ASUS_ROG/AndroidStudioProjects/WhatEatprojects/app/src/main/res/layout/menuitem.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/ASUS_ROG/AndroidStudioProjects/WhatEatprojects/app/src/main/res/layout/resitem.xml" value="0.1598731884057971" />
-        <entry key="..\:/Users/ASUS_ROG/AndroidStudioProjects/WhatEatprojects1/app/src/main/res/layout/activity_listdetail.xml" value="0.1793478260869565" />
       </map>
     </option>
   </component>

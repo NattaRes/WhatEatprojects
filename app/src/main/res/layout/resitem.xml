@@ -14,17 +14,41 @@
 
         <TextView
             android:id="@+id/resname"
-            android:gravity="center"
-            android:layout_width="match_parent"
+            android:layout_width="361dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginBottom="0dp"
-            android:fontFamily="@font/chonburi"
             android:layout_alignParentBottom="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="85dp"
+            android:fontFamily="@font/chonburi"
+            android:gravity="center"
             android:text="resturant"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
+        <TextView
+            android:id="@+id/cost"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="0dp"
+            android:fontFamily="@font/chonburi"
+            android:gravity="center"
+            android:text="Bath"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="195dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/chonburi"
+            android:gravity="center"
+            android:text="add"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -24,7 +24,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this,Login.class));
     }
 
-    public void ne(View view) {
-        startActivity(new Intent(MainActivity.this, MapsActivity.class));
-    }
+
 }
