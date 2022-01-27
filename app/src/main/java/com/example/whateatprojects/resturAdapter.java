@@ -10,7 +10,7 @@ import com.example.whateatprojects.Inteface.ItemClickListener;
 
 public class resturAdapter extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView restuname;
+    public TextView restuname, pricer, locatis;
     private ItemClickListener itemClickListener;
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
@@ -21,6 +21,8 @@ public class resturAdapter extends RecyclerView.ViewHolder implements View.OnCli
         super(itemView);
 
         restuname = (TextView) itemView.findViewById(R.id.resname);
+        pricer = (TextView) itemView.findViewById(R.id.cost);
+        locatis = (TextView) itemView.findViewById(R.id.address);
 
         itemView.setOnClickListener(this);
     }

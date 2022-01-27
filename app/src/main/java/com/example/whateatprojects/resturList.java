@@ -57,6 +57,8 @@ public class resturList extends AppCompatActivity {
             @Override
             protected void populateViewHolder(resturAdapter resturAdapter, Resturantaf resturantaf, int i) {
                 resturAdapter.restuname.setText(resturantaf.getName());
+                resturAdapter.pricer.setText(resturantaf.getPrice());
+                resturAdapter.locatis.setText(resturantaf.getLocatinos());
 
                 Resturantaf click = resturantaf;
                 resturAdapter.setItemClickListener(new ItemClickListener() {
