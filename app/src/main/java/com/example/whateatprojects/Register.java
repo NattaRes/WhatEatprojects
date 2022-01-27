@@ -36,7 +36,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ProgressDialog mDialog = new ProgressDialog(Register.this);
-                mDialog.setMessage("Please waiting...");
+                mDialog.setMessage("โปรดรอ. . .");
                 mDialog.show();
 
                 table_user.addValueEventListener(new ValueEventListener() {
@@ -45,7 +45,7 @@ public class Register extends AppCompatActivity {
                         //check if alrady user phone
                         if(snapshot.child(edtphone.getText().toString()).exists()){
                             mDialog.dismiss();
-                            Toast.makeText(Register.this, "Phone Number already register", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, "มีผู้ใช้หมายเลขโทรศัพท์นี้แล้ว", Toast.LENGTH_SHORT).show();
                             finish();
 
                         }
@@ -53,7 +53,7 @@ public class Register extends AppCompatActivity {
                             mDialog.dismiss();
                             User user = new User(edtname.getText().toString(),edtpss.getText().toString());
                             table_user.child(edtphone.getText().toString()).setValue(user);
-                            Toast.makeText(Register.this, "Register Successfull !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, "การลงทะเบียนเสร็จสมบูรณ์!", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }

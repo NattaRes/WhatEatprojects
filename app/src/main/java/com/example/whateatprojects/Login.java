@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ProgressDialog mDialog = new ProgressDialog(Login.this);
-                mDialog.setMessage("Please waiting...");
+                mDialog.setMessage("โปรดรอ. . .");
                 mDialog.show();
                 table_user.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -54,11 +54,11 @@ public class Login extends AppCompatActivity {
                                 startActivity(i);
                                 finish();
                             } else {
-                                Toast.makeText(Login.this, "Wrong Password !", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, "รหัสผ่านผิดพลาด!", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             mDialog.dismiss();
-                            Toast.makeText(Login.this, "User not exist in database", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "ไม่พบข้อมูลผู้ใช้ในฐานข้อมูล", Toast.LENGTH_SHORT).show();
                         }
                     }
                     @Override
