@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="162dp"
         android:layout_height="52dp"
-        android:fontFamily="@font/chonburi"
+        android:fontFamily="@font/mitr"
         android:text="@string/whateat"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -30,7 +30,7 @@
         android:layout_width="101dp"
 
         android:layout_height="26dp"
-        android:fontFamily="@font/chonburi"
+        android:fontFamily="@font/mitr"
         android:text="ลงทะเบียน"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -43,7 +43,7 @@
         app:layout_constraintVertical_bias="0.348" />
 
     <EditText
-        android:fontFamily="@font/chonburi"
+        android:fontFamily="@font/mitr"
         android:id="@+id/use"
         android:layout_width="359dp"
         android:layout_height="66dp"
@@ -58,7 +58,7 @@
         app:layout_constraintVertical_bias="0.461" />
 
     <EditText
-        android:fontFamily="@font/chonburi"
+        android:fontFamily="@font/mitr"
         android:id="@+id/phone"
         android:layout_width="359dp"
         android:layout_height="66dp"
@@ -73,7 +73,7 @@
         app:layout_constraintVertical_bias="0.566" />
 
     <EditText
-        android:fontFamily="@font/chonburi"
+        android:fontFamily="@font/mitr"
         android:id="@+id/pssre"
         android:layout_width="359dp"
         android:layout_height="66dp"
@@ -91,7 +91,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_bg"
-        android:fontFamily="@font/chonburi"
+        android:fontFamily="@font/mitr"
         android:id="@+id/regis"
         android:padding="14dp"
         android:text="ยืนยันการลงทะเบียน"
