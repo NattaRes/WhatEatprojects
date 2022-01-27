@@ -19,7 +19,7 @@ public class Resturantaf {
     }
 
     public String getPrice() {
-        return Price;
+        return Price + " Baht";
     }
 
     public String getLocatinos() {
