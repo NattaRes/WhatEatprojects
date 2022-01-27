@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="115dp">
+        android:layout_height="91dp">
 
         <TextView
             android:id="@+id/resname"
@@ -18,11 +18,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="8dp"
-            android:layout_marginBottom="85dp"
+            android:layout_marginBottom="47dp"
             android:fontFamily="@font/mitr"
             android:gravity="center"
             android:text="resturant"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:fontFamily="@font/mitr"
             android:gravity="center"
             android:text="Bath"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
@@ -48,7 +48,7 @@
             android:fontFamily="@font/mitr"
             android:gravity="center"
             android:text="add"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
