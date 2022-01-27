@@ -27,7 +27,7 @@ import java.net.URL;
 
 public class listdetail extends AppCompatActivity {
 
-    TextView textView, textView2;
+    TextView nares, chron, addr;
 
     ImageView imageView;
 
@@ -35,7 +35,7 @@ public class listdetail extends AppCompatActivity {
 
     String getresID = "";
 
-    String gettris, forurl;
+    String gettris, forurl, chroniser, locanos;
 
     FirebaseDatabase database;
     DatabaseReference restur;
@@ -49,8 +49,9 @@ public class listdetail extends AppCompatActivity {
 
         getresID = getIntent().getStringExtra("ResID");
 
-        textView = (TextView) findViewById(R.id.nameres);
-        textView2 = (TextView) findViewById(R.id.time);
+        nares = (TextView) findViewById(R.id.nameres);
+        chron = (TextView) findViewById(R.id.time);
+        addr = (TextView) findViewById(R.id.add1);
 
         imageView = (ImageView) findViewById(R.id.imgres);
 
@@ -59,21 +60,6 @@ public class listdetail extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         restur = database.getReference("Resname/" + getresID);
-
-//        restur.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                gettris = snapshot.child("Name").getValue(String.class);
-//                textView.setText(gettris);
-//
-//                Picasso.get().load(forurl).into(imageView);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
 
         gomap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +80,13 @@ public class listdetail extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 gettris = snapshot.child("Name").getValue(String.class);
-                textView.setText(gettris);
+                nares.setText(gettris);
+
+                chroniser = snapshot.child("OnCtime").getValue(String.class);
+                chron.setText(chroniser);
+
+                locanos = snapshot.child("locatinos").getValue(String.class);
+                addr.setText(locanos);
 
                 forurl = snapshot.child("Image").getValue(String.class);
 
