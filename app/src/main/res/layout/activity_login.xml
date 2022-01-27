@@ -30,7 +30,6 @@
 
     <TextView
         android:layout_width="117dp"
-
         android:layout_height="31dp"
         android:fontFamily="@font/chonburi"
         android:text="ยินดีต้อนรับ"
