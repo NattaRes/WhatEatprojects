@@ -13,20 +13,21 @@
         android:src="@drawable/bg" />
 
     <TextView
-        android:layout_width="204dp"
-        android:layout_height="46dp"
+        android:layout_width="242dp"
+        android:layout_height="80dp"
         android:layout_marginStart="32dp"
-        android:fontFamily="@font/chonburi"
-        android:text="@string/whateat"
+        android:fontFamily="@font/mitr"
+        android:text="WHATEAT"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="33sp"
+        android:textSize="45sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
+        app:layout_constraintHorizontal_bias="0.361"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.332" />
+        app:layout_constraintVertical_bias="0.292" />
 
     <TextView
         android:id="@+id/txtran"
@@ -34,34 +35,35 @@
         android:layout_height="51dp"
         android:layout_marginStart="32dp"
         android:background="@drawable/backwh"
-        android:fontFamily="@font/chonburi"
+        android:fontFamily="@font/mitr"
         android:text="โปรดสุ่ม"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.484" />
 
     <Button
         android:id="@+id/rnd"
-        android:layout_width="142dp"
-        android:layout_height="114dp"
+        android:layout_width="124dp"
+        android:layout_height="107dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="48dp"
         android:layout_marginBottom="180dp"
         android:background="@drawable/randombtn"
-        android:fontFamily="@font/chonburi"
+        android:fontFamily="@font/mitr"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.398"
+        app:layout_constraintHorizontal_bias="0.389"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.837" />
 
     <Button
         android:id="@+id/next"
@@ -71,13 +73,14 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="448dp"
         android:background="@drawable/btn_bg"
-        android:fontFamily="@font/chonburi"
+        android:fontFamily="@font/mitr"
         android:text="ต่อไป"
+        android:textSize="25sp"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintHorizontal_bias="0.368"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.502" />
+        app:layout_constraintVertical_bias="0.495" />
 </androidx.constraintlayout.widget.ConstraintLayout>
