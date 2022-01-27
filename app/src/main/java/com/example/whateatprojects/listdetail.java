@@ -31,7 +31,7 @@ public class listdetail extends AppCompatActivity {
 
     ImageView imageView;
 
-    Button gomap;
+    Button gomap, backto;
 
     String getresID = "";
 
@@ -56,6 +56,8 @@ public class listdetail extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.imgres);
 
         gomap = (Button)findViewById(R.id.gomap);
+
+        backto = (Button)findViewById(R.id.backhome2);
         ////////////////////////////////////////////////////////
 
         database = FirebaseDatabase.getInstance();
@@ -67,6 +69,14 @@ public class listdetail extends AppCompatActivity {
                 Intent a = new Intent(listdetail.this,MapsActivity.class);
                 a.putExtra("sendresID", getresID);
                 startActivity(a);
+            }
+        });
+
+        backto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bcth = new Intent(listdetail.this,Home.class);
+                startActivity(bcth);
             }
         });
     }
