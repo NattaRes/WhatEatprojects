@@ -14,13 +14,14 @@
 
 
     <TextView
-        android:layout_width="163dp"
-        android:layout_height="47dp"
+        android:layout_width="217dp"
+        android:layout_height="52dp"
         android:fontFamily="@font/mitr"
-        android:text="@string/whateat"
+        android:text="WHATEAT"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="33sp"
+        android:textSize="45sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

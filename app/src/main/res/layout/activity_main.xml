@@ -13,14 +13,15 @@
         android:src="@drawable/bg" />
 
     <TextView
-        android:layout_width="204dp"
-        android:layout_height="46dp"
+        android:layout_width="263dp"
+        android:layout_height="52dp"
         android:layout_marginStart="32dp"
         android:fontFamily="@font/mitr"
-        android:text="@string/whateat"
+        android:text="WHATEAT"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="33sp"
+        android:textSize="45sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.405"
