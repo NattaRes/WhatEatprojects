@@ -50,15 +50,16 @@ public class random extends AppCompatActivity {
             public void onClick(View v) {
                 databaseReference = FirebaseDatabase.getInstance().getReference("food");
                 databaseReference.addValueEventListener(new ValueEventListener() {
+
+                    // Event listenere to update.
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-
-                        int count = (int) dataSnapshot.getChildrenCount();
+                        int count = (int) dataSnapshot.getChildrenCount(); // Count the number of food
                         for(DataSnapshot data: dataSnapshot.getChildren()){
-                            int rand = new Random().nextInt(count);
-                            for (int i = 0; i < rand; i++) {
-                                Name = data.child("name").getValue().toString();
-                                foodID = data.child("foodID").getValue().toString();
+                            int rand = new Random().nextInt(count); //Random int from Count the number of food
+                            for (int i = 0; i < rand; i++) { // Start i=0 but less rand from count
+                                Name = data.child("name").getValue(String.class);
+                                foodID = data.child("foodID").getValue(String.class);
                                 txt.setText(Name);
                             }
                     }
