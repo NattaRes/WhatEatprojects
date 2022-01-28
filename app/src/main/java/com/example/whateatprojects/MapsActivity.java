@@ -3,7 +3,6 @@ package com.example.whateatprojects;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -24,15 +23,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
 
-    FirebaseDatabase database;
-    DatabaseReference positeus;
-
     Double latitude,longitude;
     String lati, longi, coResID = "", ResName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        coResID = getIntent().getStringExtra("sendresID");
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -41,12 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-        coResID = getIntent().getStringExtra("sendresID");
-
     }
-
-
 
     /**
      * Manipulates the map once available.
@@ -76,10 +70,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 longitude = Double.parseDouble(longi);
 
 
-               LatLng location = new LatLng(latitude,longitude);
+                LatLng location = new LatLng(latitude,longitude);
 
-               mMap.addMarker(new MarkerOptions().position(location).title(ResName));
-               mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 14));
+                mMap.addMarker(new MarkerOptions().position(location).title(ResName));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 14));
             }
 
             @Override
