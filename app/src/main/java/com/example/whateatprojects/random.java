@@ -1,5 +1,6 @@
 package com.example.whateatprojects;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -30,10 +35,12 @@ public class random extends AppCompatActivity {
     TextView txt;
     Button nxt, rn;
 
+    ListView lister;
+
     String foodID, Name;
 
     FirebaseDatabase ran;
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference, referver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +49,9 @@ public class random extends AppCompatActivity {
         txt = (TextView) findViewById(R.id.txtran);
         rn = (Button) findViewById(R.id.rnd);
         nxt = (Button)findViewById(R.id.next);
-        ran = FirebaseDatabase.getInstance();
-        databaseReference = ran.getReference();
+        lister = (ListView) findViewById(R.id.lister);
+//        ran = FirebaseDatabase.getInstance();
+//        databaseReference = ran.getReference();
 
         rn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,15 +62,19 @@ public class random extends AppCompatActivity {
                     // Event listenere to update.
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        int count = (int) dataSnapshot.getChildrenCount(); // Count the number of food
+                        List<String> productIdsList = new ArrayList<>();
                         for(DataSnapshot data: dataSnapshot.getChildren()){
-                            int rand = new Random().nextInt(count); //Random int from Count the number of food
-                            for (int i = 0; i < rand; i++) { // Start i=0 but less rand from count
-                                Name = data.child("name").getValue(String.class);
-                                foodID = data.child("foodID").getValue(String.class);
-                                txt.setText(Name);
-                            }
-                    }
+                            String productId = data.getKey();
+                            productIdsList.add(productId);
+                        }
+                        Collections.shuffle(productIdsList, new Random());
+                        int counter = 0;
+
+                        foodID = productIdsList.get(counter);
+
+                        Name = dataSnapshot.child(foodID).child("name").getValue(String.class);
+
+                        txt.setText(Name);
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
