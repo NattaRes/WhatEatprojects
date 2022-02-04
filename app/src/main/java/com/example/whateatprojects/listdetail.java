@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +38,8 @@ public class listdetail extends AppCompatActivity {
 
     String gettris, forurl, chroniser, locanos;
 
+    String lati, longi;
+
     FirebaseDatabase database;
     DatabaseReference restur;
 
@@ -66,9 +69,15 @@ public class listdetail extends AppCompatActivity {
         gomap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent a = new Intent(listdetail.this,MapsActivity.class);
-                a.putExtra("sendresID", getresID);
-                startActivity(a);
+//                Intent a = new Intent(listdetail.this,MapsActivity.class);
+//                a.putExtra("sendresID", getresID);
+//                startActivity(a);
+                Intent tog = new Intent(Intent.ACTION_VIEW, Uri.parse("google.navigation:q="+ lati + "," + longi + ""));
+                tog.setPackage("com.google.android.apps.maps");
+
+                if (tog.resolveActivity(getPackageManager()) != null) {
+                    startActivity(tog);
+                }
             }
         });
 
@@ -88,6 +97,9 @@ public class listdetail extends AppCompatActivity {
         restur.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                lati = snapshot.child("position").child("latitude").getValue(String.class);
+                longi  = snapshot.child("position").child("longitude").getValue(String.class);
 
                 gettris = snapshot.child("Name").getValue(String.class);
                 nares.setText(gettris);
