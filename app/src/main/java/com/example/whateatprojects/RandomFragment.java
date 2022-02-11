@@ -138,15 +138,15 @@ public class RandomFragment extends Fragment {
         nxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ResturListFragment fragment;
-                fragment = new ResturListFragment();
-                Bundle args = new Bundle();
-                args.putString("foodID", foodID);
-                fragment.setArguments(args);
-                callback.openFragment(fragment);
-//                Intent intent = new Intent(RandomFragment.this, resturList.class);
-//                intent.putExtra("foodID", foodID);
-//                startActivity(intent);
+//                ResturListFragment fragment;
+//                fragment = new ResturListFragment();
+//                Bundle args = new Bundle();
+//                args.putString("foodID", foodID);
+//                fragment.setArguments(args);
+//                callback.openFragment(fragment);
+                Intent intent = new Intent(getActivity(), resturList.class);
+                intent.putExtra("foodID", foodID);
+                startActivity(intent);
             }
         });
 
