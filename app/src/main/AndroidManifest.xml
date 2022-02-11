@@ -70,11 +70,11 @@
             android:exported="false" /> <!-- <activity -->
         <!-- android:name=".Listfood" -->
         <!-- android:exported="false" /> -->
-        <activity
-            android:name=".Home"
-            android:exported="false"
-            android:label="@string/title_activity_home"
-            android:theme="@style/Theme.WhatEatprojects.NoActionBar" />
+<!--        <activity-->
+<!--            android:name=".Home"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_home"-->
+<!--            android:theme="@style/Theme.WhatEatprojects.NoActionBar" />-->
         <activity
             android:name=".Login"
             android:exported="false" />
@@ -82,7 +82,7 @@
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Home"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

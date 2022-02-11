@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".random">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RandomFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +16,8 @@
     <TextView
         android:layout_width="242dp"
         android:layout_height="80dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginTop="190dp"
+        android:layout_gravity="center_horizontal"
         android:fontFamily="@font/mitr"
         android:text="WHATEAT"
         android:textAlignment="center"
@@ -33,7 +35,8 @@
         android:id="@+id/txtran"
         android:layout_width="340dp"
         android:layout_height="51dp"
-        android:layout_marginStart="32dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="270dp"
         android:background="@drawable/backwh"
         android:fontFamily="@font/mitr"
         android:text="โปรดสุ่ม"
@@ -52,8 +55,7 @@
         android:layout_width="124dp"
         android:layout_height="107dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="48dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginTop="340dp"
         android:background="@drawable/randombtn"
         android:fontFamily="@font/mitr"
         app:backgroundTint="@null"
@@ -70,8 +72,7 @@
         android:layout_width="163dp"
         android:layout_height="54dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="448dp"
+        android:layout_marginTop="460dp"
         android:background="@drawable/btn_bg"
         android:fontFamily="@font/mitr"
         android:text="ต่อไป"
@@ -84,4 +85,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.495" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

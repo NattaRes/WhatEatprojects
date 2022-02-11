@@ -13,53 +13,75 @@
         android:src="@drawable/bg"
         />
 
-    <TextView
-        android:layout_width="234dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="32dp"
-        android:fontFamily="@font/mitr"
-        android:text="WHATEAT"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="45sp"
-        android:textStyle="bold"
+<!--    <TextView-->
+<!--        android:layout_width="234dp"-->
+<!--        android:layout_height="63dp"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:fontFamily="@font/mitr"-->
+<!--        android:text="WHATEAT"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="45sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.394"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.266" />-->
+
+<!--    <Button-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/btn_bg"-->
+<!--        android:fontFamily="@font/mitr"-->
+<!--        android:id="@+id/rn"-->
+<!--        android:padding="14dp"-->
+<!--        android:text="สุ่มเมนูอาหาร"-->
+<!--        android:textSize="25dp"-->
+<!--        android:textAllCaps="false"-->
+<!--        app:backgroundTint="@null"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.471"-->
+<!--        app:layout_constraintWidth_percent=".8" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/recyclerviewbtn"-->
+<!--        android:layout_width="323dp"-->
+<!--        android:layout_height="83dp"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginTop="480dp"-->
+<!--        android:background="@drawable/btn_bg"-->
+<!--        android:fontFamily="@font/mitr"-->
+<!--        android:text="เมนูอาหาร"-->
+<!--        android:textSize="25dp"-->
+<!--        app:backgroundTint="@null"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <FrameLayout
+        android:id="@+id/Fcontainer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="65dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.266" />
+        app:layout_constraintVertical_bias="1.0"></FrameLayout>
 
-    <Button
-        android:layout_width="0dp"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomnavigationbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_bg"
-        android:fontFamily="@font/mitr"
-        android:id="@+id/rn"
-        android:padding="14dp"
-        android:text="สุ่มเมนูอาหาร"
-        android:textSize="25dp"
-        android:textAllCaps="false"
-        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.471"
-        app:layout_constraintWidth_percent=".8" />
-
-    <Button
-        android:id="@+id/recyclerviewbtn"
-        android:layout_width="323dp"
-        android:layout_height="83dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="480dp"
-        android:background="@drawable/btn_bg"
-        android:fontFamily="@font/mitr"
-        android:text="เมนูอาหาร"
-        android:textSize="25dp"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:menu="@menu/main_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

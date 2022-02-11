@@ -35,8 +35,6 @@ public class random extends AppCompatActivity {
     TextView txt;
     Button nxt, rn;
 
-    ListView lister;
-
     String foodID, Name;
 
     FirebaseDatabase ran;
@@ -49,9 +47,6 @@ public class random extends AppCompatActivity {
         txt = (TextView) findViewById(R.id.txtran);
         rn = (Button) findViewById(R.id.rnd);
         nxt = (Button)findViewById(R.id.next);
-        lister = (ListView) findViewById(R.id.lister);
-//        ran = FirebaseDatabase.getInstance();
-//        databaseReference = ran.getReference();
 
         rn.setOnClickListener(new View.OnClickListener() {
             @Override
