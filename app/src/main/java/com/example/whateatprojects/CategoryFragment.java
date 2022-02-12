@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.whateatprojects.Inteface.ItemClickListener;
 import com.example.whateatprojects.Model.Category;
+import com.example.whateatprojects.Model.Menufood;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -31,12 +32,16 @@ public class CategoryFragment extends Fragment {
 
     Callback callback;
 
-    RecyclerView recyclerView;
+    RecyclerView recyclerView, recyclerViewfood;
     FirebaseDatabase database;
-    DatabaseReference category;
+    DatabaseReference category, menuList;
     LinearLayoutManager layoutManager;
 
+    String CataID="";
+
     FirebaseRecyclerAdapter<Category,MyAdapter> adapter;
+
+    FirebaseRecyclerAdapter<Menufood, MenuAdapter> adapterfood;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -86,10 +91,15 @@ public class CategoryFragment extends Fragment {
         database = FirebaseDatabase.getInstance();
         category = database.getReference("Category");
 
+        menuList = database.getReference("food");
+
         recyclerView = (RecyclerView) view.findViewById(R.id.userList);
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(container.getContext());
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
+
+        recyclerViewfood = (RecyclerView) view.findViewById(R.id.foodlist);
+        recyclerViewfood.setHasFixedSize(true);
+        recyclerViewfood.setLayoutManager(new LinearLayoutManager(container.getContext()));
 
         load();
 
@@ -108,13 +118,16 @@ public class CategoryFragment extends Fragment {
                 myAdapter.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                        MenufoodFragment fragment;
-                        fragment = new MenufoodFragment();
-                        Bundle args = new Bundle();
-                        args.putString("CateID", adapter.getRef(position).getKey());
-                        fragment.setArguments(args);
-                        activity.getSupportFragmentManager().beginTransaction().replace(R.id.Fcontainer, fragment).addToBackStack(null).commit();
+                        CataID = adapter.getRef(position).getKey();
+
+                        loadfood(CataID);
+//                        AppCompatActivity activity = (AppCompatActivity) view.getContext();
+//                        MenufoodFragment fragment;
+//                        fragment = new MenufoodFragment();
+//                        Bundle args = new Bundle();
+//                        args.putString("CateID", adapter.getRef(position).getKey());
+//                        fragment.setArguments(args);
+//                        activity.getSupportFragmentManager().beginTransaction().replace(R.id.Fcontainer, fragment).addToBackStack(null).commit();
 //                        callback.openFragment(fragment);
 
 //                        Toast.makeText(Home.this, ""+click.getName(), Toast.LENGTH_SHORT).show();
@@ -127,5 +140,27 @@ public class CategoryFragment extends Fragment {
 
         };
         recyclerView.setAdapter(adapter);
+    }
+
+    private void loadfood(String cataID) {
+        adapterfood = new FirebaseRecyclerAdapter<Menufood, MenuAdapter>(Menufood.class, R.layout.menuitem,
+                MenuAdapter.class,menuList.orderByChild("CataID").equalTo(cataID)) {
+            @Override
+            protected void populateViewHolder(MenuAdapter menuAdapter, Menufood food, int i) {
+                menuAdapter.foodname.setText(food.getName());
+//                Picasso.with(getBaseContext()).load(food.getImage()).into(menuAdapter.foodimage);
+                Picasso.get().load(food.getImage()).into(menuAdapter.foodimage);
+                Menufood click = food;
+                menuAdapter.setItemClickListener(new ItemClickListener() {
+                    @Override
+                    public void onClick(View view, int position, boolean isLongClick) {
+                        Intent intent = new Intent(getActivity(), resturList.class);
+                        intent.putExtra("foodID", adapterfood.getRef(position).getKey());
+                        startActivity(intent);
+                    }
+                });
+            }
+        };
+        recyclerViewfood.setAdapter(adapterfood);
     }
 }
