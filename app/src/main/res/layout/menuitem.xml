@@ -10,31 +10,36 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="115dp">
+        android:layout_height="100dp">
 
         <ImageView
             android:id="@+id/foodimage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="107dp"
+            android:layout_height="75dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="0dp"
-            android:background="@drawable/bg"
+            android:layout_marginStart="27dp"
+            android:layout_marginEnd="245dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bkcornner"
             android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/foodname"
-            android:layout_width="match_parent"
+            android:layout_width="258dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="8dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginStart="121dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="34dp"
             android:fontFamily="@font/mitr"
             android:gravity="center"
             android:text="food"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
 
     </RelativeLayout>
