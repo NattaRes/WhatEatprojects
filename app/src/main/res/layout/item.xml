@@ -24,10 +24,10 @@
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="35dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="39dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
             android:scaleType="fitCenter" />
 
         <TextView
