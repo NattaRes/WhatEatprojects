@@ -13,10 +13,10 @@
         android:layout_height="120dp">
 
         <ImageView
+            android:id="@+id/itemsbg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/itemsbg"
-            android:background="@color/white"/>
+            android:background="@color/white" />
 
         <ImageView
             android:id="@+id/ca"
@@ -25,10 +25,10 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="35dp"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
-            android:scaleType="centerCrop" />
+            android:scaleType="fitCenter" />
 
         <TextView
             android:id="@+id/tfood"
