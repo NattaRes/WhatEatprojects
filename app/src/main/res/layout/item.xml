@@ -13,14 +13,21 @@
         android:layout_height="120dp">
 
         <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/itemsbg"
+            android:background="@color/white"/>
+
+        <ImageView
             android:id="@+id/ca"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="0dp"
-            android:background="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:scaleType="centerCrop" />
 
         <TextView
@@ -33,7 +40,7 @@
             android:fontFamily="@font/mitr"
             android:gravity="center"
             android:text="food"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp" />
 
 
