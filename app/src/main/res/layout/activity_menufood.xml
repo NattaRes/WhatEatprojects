@@ -11,6 +11,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/bg" />
     <androidx.recyclerview.widget.RecyclerView
+
         android:id="@+id/menulist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
