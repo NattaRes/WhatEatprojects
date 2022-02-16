@@ -13,6 +13,7 @@
         android:layout_height="125dp">
 
         <ImageView
+            android:id="@+id/resturlogo"
             android:layout_width="97dp"
             android:layout_height="82dp"
             android:layout_alignParentStart="true"
@@ -21,7 +22,7 @@
             android:layout_marginStart="33dp"
             android:layout_marginEnd="249dp"
             android:layout_marginBottom="23dp"
-            android:background="@drawable/bg"
+            android:background="@color/white"
             android:scaleType="centerCrop" />
 
         <TextView

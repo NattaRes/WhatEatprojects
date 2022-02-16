@@ -16,6 +16,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.squareup.picasso.Picasso;
 
 public class resturList extends AppCompatActivity {
 
@@ -59,6 +60,8 @@ public class resturList extends AppCompatActivity {
                 resturAdapter.restuname.setText(resturantaf.getName());
                 resturAdapter.pricer.setText(resturantaf.getPrice());
                 resturAdapter.locatis.setText(resturantaf.getLocatinos());
+
+                Picasso.get().load(resturantaf.getLogo()).into(resturAdapter.reslogo);
 
                 Resturantaf click = resturantaf;
                 resturAdapter.setItemClickListener(new ItemClickListener() {
