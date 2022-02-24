@@ -44,10 +44,6 @@ public class RandomFragment extends Fragment {
     FirebaseDatabase ran;
     DatabaseReference databaseReference, referver;
 
-    // comment
-
-    public Object Home;
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
